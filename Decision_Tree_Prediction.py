@@ -47,7 +47,7 @@ print ('Datasets generated')
 
 
 #Creating a list with Appliance(to be disaggregated from aggregated input) coulumn names 
-appliances = list(dataset.columns.values[4:12])
+appliances = list(dataset.columns.values[7:])
 print(appliances)
 
 t=time.time()
