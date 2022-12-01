@@ -1,6 +1,6 @@
 
 from numpy import array
-from keras.preprocessing.text import one_hot
+from keras.preprocessing.text import one_hots
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential
 from keras.layers.core import Activation, Dropout, Dense
@@ -29,7 +29,7 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sns
 
 t=time.time()
-dataset = pd.read_csv('Samples1.csv').dropna()
+dataset = pd.read_csv('Samples.csv').dropna()
 x1 = dataset['Current'].to_numpy()
 x2 = dataset['True Power'].to_numpy()
 x3 = dataset['Apparent Power'].to_numpy()
@@ -50,7 +50,7 @@ print ('Datasets generated')
 model = RandomForestRegressor(n_estimators=10,random_state=42)
 
 #Creating a list with Appliance(to be disaggregated from aggregated input) coulumn names 
-appliances = list(dataset.columns.values[4:12])
+appliances = list(dataset.columns.values[7:])
 print(appliances)
 
 
@@ -106,5 +106,3 @@ print('Average MSE of the model is:')
 print(np.mean(mse))
 print('Average RMSE of the model is:') 
 print(np.mean(rmse))
-    
-    
